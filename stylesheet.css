@@ -7,9 +7,15 @@ body {
 	-ms-transition:background-color linear 5s;
 	transition:background-color linear 5s;
 	overflow-x:hidden;
+	margin: 0;
+	padding: 0;
 }
 .container {
 	display: none;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	box-sizing: border-box;
 }
 .peach {
 	background-color: #FFDAB9;
@@ -1352,3 +1358,4 @@ audio {
     		-webkit-transform: scale(0.9);
     	}
     }*/
+```[cite: 6]
