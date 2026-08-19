@@ -220,6 +220,17 @@ $('document').ready(function(){
 								$(this).remove();
 							});
 						}
+
+						// Tambahan: Fade out hitam & restart otomatis
+						setTimeout(function() {
+							var overlay = $('<div id="fade_overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:none;"></div>');
+							$('body').append(overlay);
+							overlay.fadeIn(2000, function() {
+								$('.song')[0].pause();
+								location.reload();
+							});
+						}, 4000);
+
 					}, 10000);
 				});
 				
