@@ -245,4 +245,33 @@ $('document').ready(function(){
 		msgLoop(0);
 		
 	});
+
+	// Efek partikel kembang api ketika layar diklik (Tambahan)
+	$(document).click(function(e) {
+		let colors = ['#ff4b5c', '#ffbc00', '#00d2ff', '#26d0ce', '#ff758c', '#ff007f', '#7b2cbf', '#00f5d4'];
+		let x = e.pageX;
+		let y = e.pageY;
+
+		for (let j = 0; j < 15; j++) {
+			let size = Math.floor(Math.random() * 8) + 4;
+			let color = colors[Math.floor(Math.random() * colors.length)];
+			
+			let particle = $('<div style="position:absolute; width:'+size+'px; height:'+size+'px; background:'+color+'; top:'+y+'px; left:'+x+'px; z-index:99999; border-radius:50%; pointer-events:none;"></div>');
+			
+			$('body').append(particle);
+
+			let angle = Math.random() * Math.PI * 2;
+			let distance = Math.random() * 100 + 20;
+			let targetX = Math.cos(angle) * distance;
+			let targetY = Math.sin(angle) * distance;
+
+			particle.animate({
+				top: '+=' + targetY,
+				left: '+=' + targetX,
+				opacity: 0
+			}, 800, function() {
+				$(this).remove();
+			});
+		}
+	});
 });
